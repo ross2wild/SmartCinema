@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "CinemaProject.service1";
+option java_outer_classname = "Service1Impl";
+
+package CinemaProject;
+
+service MovieControl {
+  rpc PlayMovie (PlayMovieRequest) returns (PlayMovieResponse);
+  rpc PauseMovie (PauseMovieRequest) returns (PauseMovieResponse);
+  rpc MonitorPlayback (MonitorPlaybackRequest) returns (MonitorPlaybackResponse);
+}
+
+message PlayMovieRequest {
+  int32 screenId = 1;
+}
+
+message PlayMovieResponse {
+  string status = 1;
+}
+
+message PauseMovieRequest {
+  int32 screenId = 1;
+}
+
+message PauseMovieResponse {
+  string status = 1;
+}
+
+message MonitorPlaybackRequest {
+  int32 screenId = 1;
+}
+
+message MonitorPlaybackResponse {
+  string status = 1;
+}

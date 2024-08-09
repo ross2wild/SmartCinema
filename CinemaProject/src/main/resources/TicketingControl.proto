@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "CinemaProject.service3";
+option java_outer_classname = "Service3Impl";
+
+package CinemaProject;
+
+service TicketingControl {
+  rpc PurchaseTicket (PurchaseTicketRequest) returns (PurchaseTicketResponse);
+  rpc ReserveSeat (ReserveSeatRequest) returns (ReserveSeatResponse);
+  rpc GetMovieSchedule (GetMovieScheduleRequest) returns (GetMovieScheduleResponse);
+}
+
+message PurchaseTicketRequest {
+  string movieId = 1;
+  int32 quantity = 2;
+}
+
+message PurchaseTicketResponse {
+  string status = 1;
+  int32 ticketId = 2;
+}
+
+message ReserveSeatRequest {
+  int32 ticketId = 1;
+}
+
+message ReserveSeatResponse {
+  string status = 1;
+}
+
+message GetMovieScheduleRequest {
+}
+
+message GetMovieScheduleResponse {
+  repeated MovieSchedule movieSchedules = 1;
+}
+
+message MovieSchedule{
+  string title = 1;
+  string movieId = 2;
+  string showtime = 3;
+  int32 screenId = 4;
+}

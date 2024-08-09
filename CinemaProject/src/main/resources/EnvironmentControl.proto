@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "CinemaProject.service2";
+option java_outer_classname = "Service2Impl";
+
+package CinemaProject;
+
+service EnvironmentControl {
+  rpc SetTemperature (SetTemperatureRequest) returns (SetTemperatureResponse);
+  rpc SetVolume (SetVolumeRequest) returns (SetVolumeResponse);
+  rpc SetLighting (SetLightingRequest) returns (SetLightingResponse);
+}
+
+message SetTemperatureRequest {
+  float temperature = 1;
+  int32 screenId = 2;
+}
+
+message SetTemperatureResponse {
+  string status = 1;
+}
+
+message SetVolumeRequest {
+  int32 volumeLevel = 1;
+  int32 screenId = 2;
+}
+
+message SetVolumeResponse {
+  string status = 1;
+}
+
+message SetLightingRequest {
+  int32 lightingLevel = 1;
+  int32 screenId = 2;
+}
+
+message SetLightingResponse {
+  string status = 1;
+}
